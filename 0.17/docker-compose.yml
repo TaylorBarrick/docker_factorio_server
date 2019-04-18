@@ -3,12 +3,11 @@ services:
   factorio:
     build: .
     ports:
-     - "34198:34197/udp"
+     - "34197:34197/udp"
      - "27015:27015/tcp"
     volumes:
      - type: bind
-       source: C:/factorio1
-       target: /factorio
-
+       source: C:/factorio/saves
+       target: /factorio/saves
 volumes: 
   factorio: 

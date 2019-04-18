@@ -16,17 +16,33 @@ if [ ! -f $CONFIG/rconpw ]; then
   echo $(pwgen 15 1) > $CONFIG/rconpw
 fi
 
+if [ -f /server-settings.json ]; then
+  cp /server-settings.json $CONFIG/server-settings.json
+fi
+
 if [ ! -f $CONFIG/server-settings.json ]; then
   # Copy default settings if server-settings.json doesn't exist
   cp /opt/factorio/data/server-settings.example.json $CONFIG/server-settings.json
+fi
+
+if [ -f /map-gen-settings.json ]; then
+  cp //map-gen-settings.json $CONFIG/map-gen-settings.json
 fi
 
 if [ ! -f $CONFIG/map-gen-settings.json ]; then
   cp /opt/factorio/data/map-gen-settings.example.json $CONFIG/map-gen-settings.json
 fi
 
+if [ -f /map-settings.json ]; then
+  cp /map-settings4.json $CONFIG/map-settings.json
+fi
+
 if [ ! -f $CONFIG/map-settings.json ]; then
   cp /opt/factorio/data/map-settings.example.json $CONFIG/map-settings.json
+fi
+
+if [ -f /server-adminlist.json ]; then
+  cp /server-adminlist.json $CONFIG/server-adminlist.json
 fi
 
 if find -L $SAVES -iname \*.tmp.zip -mindepth 1 -print | grep -q .; then
